@@ -14,6 +14,12 @@
     <Filter Include="Enums">
       <UniqueIdentifier>{87a017f5-9939-47ff-9ec5-1f636c045bff}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Singletons">
+      <UniqueIdentifier>{bf055a5b-3577-4207-b2f8-0c8d70282024}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Managers">
+      <UniqueIdentifier>{6b67abda-6fd2-4d8a-8758-69cce3a06e96}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RigidBody.h">
@@ -46,6 +52,36 @@
     <ClInclude Include="Animation.h">
       <Filter>Core</Filter>
     </ClInclude>
+    <ClInclude Include="UIControl.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Event.h">
+      <Filter>Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseButtons.h">
+      <Filter>Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Singletons</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneState.h">
+      <Filter>Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="EventManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="FontManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>Singletons</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -65,6 +101,24 @@
     </ClCompile>
     <ClCompile Include="SpriteSheet.cpp">
       <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="UIControl.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Singletons</Filter>
+    </ClCompile>
+    <ClCompile Include="EventManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="FontManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>Singletons</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
