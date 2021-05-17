@@ -9,7 +9,6 @@ struct RigidBody
 	glm::vec2 velocity;
 	glm::vec2 acceleration;
 	bool isColliding;
-
 };
 
 #endif //__RIGID_BODY__

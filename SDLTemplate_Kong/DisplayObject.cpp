@@ -13,7 +13,7 @@ Scene* DisplayObject::getParent() const
 	return m_pParentScene;
 }
 
-void DisplayObject::setParent(Scene * parent)
+void DisplayObject::setParent(Scene* parent)
 {
 	m_pParentScene = parent;
 }
@@ -22,6 +22,7 @@ uint32_t DisplayObject::getLayerIndex() const
 {
 	return m_layerIndex;
 }
+
 uint32_t DisplayObject::getLayerOrderIndex() const
 {
 	return m_layerOrderIndex;

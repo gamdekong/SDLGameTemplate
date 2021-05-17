@@ -1,8 +1,8 @@
 #include "GameObject.h"
 
 GameObject::GameObject() :
-	m_transform{glm::vec2(0,0),glm::vec2(0,0),glm::vec2(0,0) },
-	m_rigidBody{0,glm::vec2(0,0) ,glm::vec2(0,0) , false},
+	m_transform{glm::vec2(0, 0), glm::vec2(0, 0), glm::vec2(0, 0)},
+	m_rigidBody{0, glm::vec2(0, 0), glm::vec2(0, 0), false},
 	m_width(0),
 	m_height(0),
 	m_type(GameObjectType::NONE),

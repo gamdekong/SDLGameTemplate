@@ -12,11 +12,11 @@ class Scene : public GameObject
 {
 public:
 	friend class DisplayObject;
-	Scene() = default;
-	virtual ~Scene() override;
-	virtual void draw() override = 0;
-	virtual void update() override = 0;
-	virtual void clean() override = 0;
+	Scene();
+	virtual ~Scene();
+	virtual void draw() = 0;
+	virtual void update() = 0;
+	virtual void clean() = 0;
 	virtual void handleEvents() = 0;
 	virtual void start() = 0;
 
@@ -40,4 +40,3 @@ private:
 
 
 #endif // !__SCENE__
-

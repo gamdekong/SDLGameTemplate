@@ -7,6 +7,3 @@ enum class GameObjectType
 	NUM_OF_TYPES
 };
 #endif // !__GAME_OBJECT_TYPE__
-
-
-

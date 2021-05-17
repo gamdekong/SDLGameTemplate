@@ -5,14 +5,15 @@
 #include "GameObject.h"
 
 class Scene;
+
 class DisplayObject : public GameObject
 {
 public:
 	DisplayObject();
-	virtual ~DisplayObject() override = default;
-	virtual void draw() override = 0;
-	virtual void update() override = 0;
-	virtual void clean() override = 0;
+	virtual ~DisplayObject() = default;
+	virtual void draw() = 0;
+	virtual void update() = 0;
+	virtual void clean() = 0;
 
 	Scene* getParent() const;
 	void setParent(Scene* parent);
@@ -31,7 +32,7 @@ public:
 	 * @param new_index The new layer index
 	 * @param new_order The order within the layer, default is zero
 	 */
-	void setLayerIndex(uint32_t new_index, const uint32_t new_order = 0);
+	void setLayerIndex(uint32_t new_index, uint32_t new_order = 0);
 
 
 private:
@@ -41,4 +42,3 @@ private:
 	Scene* m_pParentScene;
 };
 #endif // !__DISPLAY_OBJECT__
-
