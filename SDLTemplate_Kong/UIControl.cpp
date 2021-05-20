@@ -1,6 +1,7 @@
 #include "UIControl.h"
 #include "CollisionManager.h"
 #include "EventManager.h"
+#include "MouseButtons.h"
 
 UIControl::UIControl() :
 	m_mouseOver(false),
@@ -31,7 +32,7 @@ void UIControl::onMouseOver()
 {
 	const auto mousePosition = EventManager::Instance().getMousePosition();
 
-	if (CollisionManager::pointRectCheck(mousePosition, getTransform()->position, getWidth(), getHeight()))
+	if (CollisionManager::pointRectCheck(mousePosition, getTransform().getPosition(), getWidth(), getHeight()))
 	{
 		m_mouseOver = true;
 	}
@@ -40,15 +41,15 @@ void UIControl::onMouseOver()
 		m_mouseOver = false;
 	}
 
-	if ((m_events[MOUSE_OVER]) && (!m_mouseOverActive))
+	if ((m_events[Event::MOUSE_OVER]) && (!m_mouseOverActive))
 	{
 		if (m_mouseOver)
 		{
-			m_events[MOUSE_OVER]();
+			m_events[Event::MOUSE_OVER]();
 			m_mouseOverActive = true;
 		}
 	}
-	else if ((m_events[MOUSE_OVER]) && (!m_mouseOver))
+	else if ((m_events[Event::MOUSE_OVER]) && (!m_mouseOver))
 	{
 		m_mouseOverActive = false;
 	}
@@ -56,12 +57,12 @@ void UIControl::onMouseOver()
 
 void UIControl::onMouseOut()
 {
-	if ((m_events[MOUSE_OUT]) && (m_mouseOutActive) && (!m_mouseOver))
+	if ((m_events[Event::MOUSE_OUT]) && (m_mouseOutActive) && (!m_mouseOver))
 	{
-		m_events[MOUSE_OUT]();
+		m_events[Event::MOUSE_OUT]();
 		m_mouseOutActive = false;
 	}
-	else if ((m_events[MOUSE_OUT]) && (m_mouseOver))
+	else if ((m_events[Event::MOUSE_OUT]) && (m_mouseOver))
 	{
 		m_mouseOutActive = true;
 	}
@@ -69,12 +70,12 @@ void UIControl::onMouseOut()
 
 void UIControl::onLeftMouseButtonClick()
 {
-	if (EventManager::Instance().getMouseButton(LEFT))
+	if (EventManager::Instance().getMouseButton(static_cast<int>(MouseButtons::LEFT)))
 	{
-		if ((m_events[CLICK]) && (m_mouseOver) && !m_leftMouseButtonClicked)
+		if ((m_events[Event::CLICK]) && (m_mouseOver) && !m_leftMouseButtonClicked)
 		{
 			m_leftMouseButtonClicked = true;
-			m_events[CLICK](); // call click event
+			m_events[Event::CLICK](); // call click event
 		}
 	}
 	else

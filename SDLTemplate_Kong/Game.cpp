@@ -9,6 +9,7 @@
 #include "SceneState.h"
 #include "FontManager.h"
 #include "Renderer.h"
+#include "StartScene.h"
 #include "TextureManager.h"
 
 
@@ -155,6 +156,7 @@ void Game::changeSceneState(const SceneState new_state)
 			std::cout << "cleaning TextureManager" << std::endl;
 		}
 
+		delete m_currentScene;
 		m_currentScene = nullptr;
 
 		m_currentSceneState = new_state;
@@ -164,16 +166,8 @@ void Game::changeSceneState(const SceneState new_state)
 		switch (m_currentSceneState)
 		{
 			case SceneState::START_SCENE:
-				//m_currentScene = new StartScene();
+				m_currentScene = new StartScene();
 				std::cout << "start scene activated" << std::endl;
-				break;
-			case SceneState::PLAY_SCENE:
-				//m_currentScene = new PlayScene();
-				std::cout << "play scene activated" << std::endl;
-				break;
-			case SceneState::END_SCENE:
-				//m_currentScene = new EndScene();
-				std::cout << "end scene activated" << std::endl;
 				break;
 			default:
 				std::cout << "default case activated" << std::endl;
@@ -190,6 +184,7 @@ void Game::quit()
 
 void Game::render() const
 {
+	SDL_SetRenderDrawColor(Renderer::Instance().getRenderer(), 255, 255, 255, 255);
 	SDL_RenderClear(Renderer::Instance().getRenderer()); // clear the renderer to the draw colour
 
 	m_currentScene->draw();

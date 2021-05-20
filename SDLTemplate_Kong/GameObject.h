@@ -22,10 +22,12 @@ public:
 	virtual void clean() = 0;
 
 	// getters for common variables
-	Transform* getTransform();
+	Transform getTransform() const;
+	void setTransform(Transform transform);
 
 	// getters and setters for physics properties
-	RigidBody* getRigidBody();
+	RigidBody getRigidBody() const;
+	void setRigidBody(RigidBody rigidBody);
 
 	// getters and setters for game object properties
 	int getWidth() const;

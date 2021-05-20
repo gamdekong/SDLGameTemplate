@@ -117,7 +117,7 @@ bool TextureManager::loadSpriteSheet(
 	return true;
 }
 
-void TextureManager::draw(const std::string & id, const int x, const int y, const double angle, const int alpha, const bool centered, const SDL_RendererFlip flip)
+void TextureManager::draw(const std::string & id, const int x, const int y, const double angle, const int alpha, const SDL_RendererFlip flip)
 {
 	SDL_Rect srcRect;
 	SDL_Rect destRect;
@@ -132,17 +132,18 @@ void TextureManager::draw(const std::string & id, const int x, const int y, cons
 	srcRect.w = destRect.w = textureWidth;
 	srcRect.h = destRect.h = textureHeight;
 
-	if (centered) {
-		const int xOffset = textureWidth * 0.5;
-		const int yOffset = textureHeight * 0.5;
-		destRect.x = x - xOffset;
-		destRect.y = y - yOffset;
-	}
-	else {
-		destRect.x = x;
-		destRect.y = y;
-	}
-
+	//if (centered) {
+	//	const int xOffset = textureWidth * 0.5;
+	//	const int yOffset = textureHeight * 0.5;
+	//	destRect.x = x - xOffset;
+	//	destRect.y = y - yOffset;
+	//}
+	//else {
+	//	destRect.x = x;
+	//	destRect.y = y;
+	//}
+	destRect.x = x;
+	destRect.y = y;
 	SDL_SetTextureAlphaMod(m_textureMap[id], alpha);
 	SDL_RenderCopyEx(Renderer::Instance().getRenderer(), m_textureMap[id], &srcRect, &destRect, angle, nullptr, flip);
 }
@@ -151,7 +152,7 @@ void TextureManager::drawFrame(const std::string & id, const int x, const int y,
 	const int frame_height, int& current_row,
 	int& current_frame, int frame_number, int row_number,
 	float speed_factor, const double angle,
-	const int alpha, const bool centered, const SDL_RendererFlip flip)
+	const int alpha, const SDL_RendererFlip flip)
 {
 	animateFrames(frame_width, frame_height, frame_number, row_number, speed_factor, current_frame, current_row);
 
@@ -175,16 +176,18 @@ void TextureManager::drawFrame(const std::string & id, const int x, const int y,
 	destRect.w = textureWidth;
 	destRect.h = textureHeight;
 
-	if (centered) {
-		const int xOffset = textureWidth * 0.5;
-		const int yOffset = textureHeight * 0.5;
-		destRect.x = x - xOffset;
-		destRect.y = y - yOffset;
-	}
-	else {
-		destRect.x = x;
-		destRect.y = y;
-	}
+	//if (centered) {
+	//	const int xOffset = textureWidth * 0.5;
+	//	const int yOffset = textureHeight * 0.5;
+	//	destRect.x = x - xOffset;
+	//	destRect.y = y - yOffset;
+	//}
+	//else {
+	//	destRect.x = x;
+	//	destRect.y = y;
+	//}
+	destRect.x = x;
+	destRect.y = y;
 
 	SDL_SetTextureAlphaMod(m_textureMap[id], alpha);
 	SDL_RenderCopyEx(Renderer::Instance().getRenderer(), m_textureMap[id], &srcRect, &destRect, angle, nullptr, flip);
@@ -218,7 +221,7 @@ void TextureManager::animateFrames(int frame_width, int frame_height, const int 
 void TextureManager::playAnimation(
 	const std::string & sprite_sheet_name, Animation & animation,
 	int x, int y, float speed_factor,
-	double angle, int alpha, bool centered, SDL_RendererFlip flip)
+	double angle, int alpha, SDL_RendererFlip flip)
 {
 	const auto totalFrames = animation.frames.size();
 	const int animationRate = round(totalFrames / 2 / speed_factor);
@@ -255,22 +258,23 @@ void TextureManager::playAnimation(
 	destRect.w = textureWidth;
 	destRect.h = textureHeight;
 
-	if (centered) {
-		const int xOffset = textureWidth * 0.5;
-		const int yOffset = textureHeight * 0.5;
-		destRect.x = x - xOffset;
-		destRect.y = y - yOffset;
-	}
-	else {
-		destRect.x = x;
-		destRect.y = y;
-	}
-
+	//if (centered) {
+	//	const int xOffset = textureWidth * 0.5;
+	//	const int yOffset = textureHeight * 0.5;
+	//	destRect.x = x - xOffset;
+	//	destRect.y = y - yOffset;
+	//}
+	//else {
+	//	destRect.x = x;
+	//	destRect.y = y;
+	//}
+	destRect.x = x;
+	destRect.y = y;
 	SDL_SetTextureAlphaMod(m_textureMap[sprite_sheet_name], alpha);
 	SDL_RenderCopyEx(Renderer::Instance().getRenderer(), m_textureMap[sprite_sheet_name], &srcRect, &destRect, angle, nullptr, flip);
 }
 
-void TextureManager::drawText(const std::string & id, const int x, const int y, const double angle, const int alpha, const bool centered, const SDL_RendererFlip flip)
+void TextureManager::drawText(const std::string & id, const int x, const int y, const double angle, const int alpha, const SDL_RendererFlip flip)
 {
 	SDL_Rect srcRect;
 	SDL_Rect destRect;
@@ -285,17 +289,18 @@ void TextureManager::drawText(const std::string & id, const int x, const int y, 
 	srcRect.w = destRect.w = textureWidth;
 	srcRect.h = destRect.h = textureHeight;
 
-	if (centered) {
-		const int xOffset = textureWidth * 0.5;
-		const int yOffset = textureHeight * 0.5;
-		destRect.x = x - xOffset;
-		destRect.y = y - yOffset;
-	}
-	else {
-		destRect.x = x;
-		destRect.y = y;
-	}
-
+	//if (centered) {
+	//	const int xOffset = textureWidth * 0.5;
+	//	const int yOffset = textureHeight * 0.5;
+	//	destRect.x = x - xOffset;
+	//	destRect.y = y - yOffset;
+	//}
+	//else {
+	//	destRect.x = x;
+	//	destRect.y = y;
+	//}
+	destRect.x = x;
+	destRect.y = y;
 	SDL_SetTextureAlphaMod(m_textureMap[id], alpha);
 	SDL_RenderCopyEx(Renderer::Instance().getRenderer(), m_textureMap[id], &srcRect, &destRect, angle, nullptr, flip);
 }
