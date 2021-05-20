@@ -11,14 +11,24 @@ GameObject::GameObject() :
 {
 }
 
-Transform* GameObject::getTransform()
+Transform GameObject::getTransform() const
 {
-	return &m_transform;
+	return m_transform;
 }
 
-RigidBody* GameObject::getRigidBody()
+void GameObject::setTransform(Transform transform)
 {
-	return &m_rigidBody;
+	m_transform = transform;
+}
+
+RigidBody GameObject::getRigidBody() const
+{
+	return m_rigidBody;
+}
+
+void GameObject::setRigidBody(RigidBody rigidBody)
+{
+	m_rigidBody = rigidBody;
 }
 
 int GameObject::getWidth() const

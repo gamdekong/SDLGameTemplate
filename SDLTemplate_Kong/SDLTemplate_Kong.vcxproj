@@ -97,6 +97,12 @@
       <AdditionalLibraryDirectories>$(SolutionDir)\Library\SDL\SDL2\lib\x86;$(SolutionDir)\Library\SDL\SDL2_image\lib\x86;$(SolutionDir)\Library\SDL\SDL2_mixer\lib\x86;$(SolutionDir)\Library\SDL\SDL2_ttf\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>copy $(SolutionDir)Library\SDL\SDL2\lib\x86\*.dll $(TargetDir)\
+copy $(SolutionDir)Library\SDL\SDL2_image\lib\x86\*.dll $(TargetDir)\
+copy $(SolutionDir)Library\SDL\SDL2_mixer\lib\x86\*.dll $(TargetDir)\
+copy $(SolutionDir)Library\SDL\SDL2_ttf\lib\x86\*.dll $(TargetDir)\</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -144,23 +150,46 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
+    <ClInclude Include="CollisionManager.h" />
+    <ClInclude Include="Config.h" />
     <ClInclude Include="DisplayObject.h" />
+    <ClInclude Include="Event.h" />
+    <ClInclude Include="EventManager.h" />
+    <ClInclude Include="FontManager.h" />
     <ClInclude Include="Frame.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObjectType.h" />
+    <ClInclude Include="MouseButtons.h" />
+    <ClInclude Include="Renderer.h" />
     <ClInclude Include="RigidBody.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneState.h" />
+    <ClInclude Include="SoundManager.h" />
+    <ClInclude Include="SoundType.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteSheet.h" />
+    <ClInclude Include="StartScene.h" />
+    <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Transform.h" />
+    <ClInclude Include="UIControl.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="DisplayObject.cpp" />
+    <ClCompile Include="EventManager.cpp" />
+    <ClCompile Include="FontManager.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteSheet.cpp" />
+    <ClCompile Include="StartScene.cpp" />
+    <ClCompile Include="TextureManager.cpp" />
+    <ClCompile Include="UIControl.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
