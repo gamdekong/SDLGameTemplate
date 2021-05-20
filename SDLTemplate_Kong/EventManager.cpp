@@ -32,6 +32,7 @@ void EventManager::update()
             switch (event.type)
             {
                 case SDL_QUIT:
+                    std::cout << "SDL_QUIT\n";
                     TheGame::Instance().quit();
                     break;
 

@@ -2,7 +2,7 @@
 #ifndef __EVENT_MANAGER__
 #define __EVENT_MANAGER__
 
-#include "SDL.h"
+#include <SDL.h>
 #include "glm/vec2.hpp"
 
 

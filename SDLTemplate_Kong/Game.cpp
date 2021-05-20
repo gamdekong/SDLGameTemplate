@@ -209,6 +209,8 @@ void Game::clean() const
 	//ImGui::DestroyContext();
 	//ImGuiWindowFrame::Instance().Clean();
 
+
+	
 	Renderer::Instance().clean();
 	SDL_DestroyWindow(m_pWindow);
 
