@@ -26,6 +26,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Main">
+      <UniqueIdentifier>{24b36c66-35f8-43d5-be0b-707a341b47fe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RigidBody.h">
@@ -85,9 +88,6 @@
     <ClInclude Include="TextureManager.h">
       <Filter>Managers</Filter>
     </ClInclude>
-    <ClInclude Include="Renderer.h">
-      <Filter>Singletons</Filter>
-    </ClInclude>
     <ClInclude Include="CollisionManager.h">
       <Filter>Managers</Filter>
     </ClInclude>
@@ -102,9 +102,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
     <ClCompile Include="GameObject.cpp">
       <Filter>Core</Filter>
     </ClCompile>
@@ -135,9 +132,6 @@
     <ClCompile Include="TextureManager.cpp">
       <Filter>Managers</Filter>
     </ClCompile>
-    <ClCompile Include="Renderer.cpp">
-      <Filter>Singletons</Filter>
-    </ClCompile>
     <ClCompile Include="CollisionManager.cpp">
       <Filter>Managers</Filter>
     </ClCompile>
@@ -146,6 +140,9 @@
     </ClCompile>
     <ClCompile Include="StartScene.cpp">
       <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Main</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

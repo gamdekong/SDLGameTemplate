@@ -6,7 +6,6 @@
 #include <sstream>
 #include "Frame.h"
 #include <iterator>
-#include "Renderer.h"
 
 TextureManager::TextureManager()
 = default;
@@ -39,7 +38,7 @@ bool TextureManager::load(const std::string & file_name, const std::string & id)
 		return false;
 	}
 
-	auto pTexture = SDL_CreateTextureFromSurface(Game::Instance().getRenderer(), surface);
+	auto pTexture = SDL_CreateTextureFromSurface(m_pRenderer, surface);
 	SDL_FreeSurface(surface);
 
 	// everything went ok, add the texture to our list
@@ -145,7 +144,7 @@ void TextureManager::draw(const std::string & id, const int x, const int y, cons
 	destRect.x = x;
 	destRect.y = y;
 	SDL_SetTextureAlphaMod(m_textureMap[id], alpha);
-	SDL_RenderCopyEx(Game::Instance().getRenderer(), m_textureMap[id], &srcRect, &destRect, angle, nullptr, flip);
+	SDL_RenderCopyEx(m_pRenderer, m_textureMap[id], &srcRect, &destRect, angle, nullptr, flip);
 }
 
 void TextureManager::drawFrame(const std::string & id, const int x, const int y, const int frame_width,
@@ -190,7 +189,7 @@ void TextureManager::drawFrame(const std::string & id, const int x, const int y,
 	destRect.y = y;
 
 	SDL_SetTextureAlphaMod(m_textureMap[id], alpha);
-	SDL_RenderCopyEx(Game::Instance().getRenderer(), m_textureMap[id], &srcRect, &destRect, angle, nullptr, flip);
+	SDL_RenderCopyEx(m_pRenderer, m_textureMap[id], &srcRect, &destRect, angle, nullptr, flip);
 }
 
 void TextureManager::animateFrames(int frame_width, int frame_height, const int frame_number, const int row_number, const float speed_factor, int& current_frame, int& current_row)
@@ -271,7 +270,7 @@ void TextureManager::playAnimation(
 	destRect.x = x;
 	destRect.y = y;
 	SDL_SetTextureAlphaMod(m_textureMap[sprite_sheet_name], alpha);
-	SDL_RenderCopyEx(Game::Instance().getRenderer(), m_textureMap[sprite_sheet_name], &srcRect, &destRect, angle, nullptr, flip);
+	SDL_RenderCopyEx(m_pRenderer, m_textureMap[sprite_sheet_name], &srcRect, &destRect, angle, nullptr, flip);
 }
 
 void TextureManager::drawText(const std::string & id, const int x, const int y, const double angle, const int alpha, const SDL_RendererFlip flip)
@@ -302,7 +301,7 @@ void TextureManager::drawText(const std::string & id, const int x, const int y, 
 	destRect.x = x;
 	destRect.y = y;
 	SDL_SetTextureAlphaMod(m_textureMap[id], alpha);
-	SDL_RenderCopyEx(Game::Instance().getRenderer(), m_textureMap[id], &srcRect, &destRect, angle, nullptr, flip);
+	SDL_RenderCopyEx(m_pRenderer, m_textureMap[id], &srcRect, &destRect, angle, nullptr, flip);
 }
 
 glm::vec2 TextureManager::getTextureSize(const std::string & id)
@@ -322,6 +321,16 @@ void TextureManager::setAlpha(const std::string & id, const Uint8 new_alpha)
 	auto pTexture = m_textureMap[id];
 	SDL_SetTextureAlphaMod(pTexture, new_alpha);
 	pTexture = nullptr;
+}
+
+void TextureManager::setRenderer(SDL_Renderer* renderer)
+{
+	m_pRenderer = renderer;
+}
+
+SDL_Renderer* TextureManager::getRenderer() const
+{
+	return m_pRenderer;
 }
 
 void TextureManager::setColour(const std::string & id, const Uint8 red, const Uint8 green, const Uint8 blue)

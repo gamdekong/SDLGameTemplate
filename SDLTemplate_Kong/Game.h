@@ -46,7 +46,7 @@ public:
 	bool isRunning() const;
 	void changeSceneState(SceneState new_state);
 
-	SDL_Renderer* getRenderer() const;
+
 
 private:
 	Game();
@@ -62,7 +62,7 @@ private:
 	Scene* m_currentScene;
 	SceneState m_currentSceneState;
 
-	SDL_Renderer* m_pRenderer;
+	//SDL_Renderer* m_pRenderer;
 	SDL_Window* m_pWindow;
 };
 

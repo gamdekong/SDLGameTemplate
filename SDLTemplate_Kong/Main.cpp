@@ -16,7 +16,7 @@ int main(int argc, char* args[])
 	//AllocConsole();
 	//freopen("CON", "w", stdout);
 
-	TheGame::Instance().init("SDLEngine v0.25", 100, 100, 800, 600, false);
+	TheGame::Instance().init("Napkin", 100, 100, 800, 600, false);
 
 	while (TheGame::Instance().isRunning())
 	{
@@ -33,9 +33,8 @@ int main(int argc, char* args[])
 		}
 
 		// delta time
-		auto deltaTime = float(SDL_GetTicks() - frameStart) / 1000.0f;
+		float deltaTime = (SDL_GetTicks() - frameStart) / 1000.0f;
 		TheGame::Instance().setDeltaTime(deltaTime);
-
 		frames++;
 		TheGame::Instance().setFrames(frames);
 

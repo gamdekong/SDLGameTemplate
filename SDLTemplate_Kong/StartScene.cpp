@@ -3,7 +3,8 @@
 #include "Game.h"
 #include "glm/gtx/string_cast.hpp"
 #include "EventManager.h"
-#include "Renderer.h"
+#include "TextureManager.h"
+
 
 StartScene::StartScene()
 {
@@ -15,8 +16,8 @@ StartScene::~StartScene()
 
 void StartScene::draw()
 {
-	SDL_SetRenderDrawColor(Game::Instance().getRenderer(), 0, 0, 255, 255);
-	SDL_RenderDrawRect(Game::Instance().getRenderer(), &m_rect);
+	SDL_SetRenderDrawColor(TextureManager::Instance().getRenderer(), 0, 0, 255, 255);
+	SDL_RenderDrawRect(TextureManager::Instance().getRenderer(), &m_rect);
 	Scene::drawDisplayList();
 }
 

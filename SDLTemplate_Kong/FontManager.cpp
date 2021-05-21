@@ -2,7 +2,6 @@
 
 #include "Game.h"
 #include "TextureManager.h"
-#include "Renderer.h"
 
 inline bool FontManager::m_exists(const std::string& id)
 {
@@ -40,7 +39,7 @@ bool FontManager::textToTexture(const std::string& text, const std::string& font
 	}
 	else
 	{
-		SDL_Texture* pTexture = SDL_CreateTextureFromSurface(/* TheGame::Instance()->getRenderer()*/ Game::Instance().getRenderer(), textSurface);
+		SDL_Texture* pTexture = SDL_CreateTextureFromSurface(/* TheGame::Instance()->getRenderer()*/ TextureManager::Instance().getRenderer(), textSurface);
 
 		SDL_FreeSurface(textSurface);
 

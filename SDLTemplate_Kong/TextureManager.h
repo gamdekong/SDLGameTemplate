@@ -50,6 +50,11 @@ public:
 	glm::vec2 getTextureSize(const std::string& id);
 	void setAlpha(const std::string& id, Uint8 new_alpha);
 
+
+	void setRenderer(SDL_Renderer* renderer);
+	SDL_Renderer* getRenderer() const;
+
+
 	// textureMap functions
 	int getTextureMapSize() const;
 	void displayTextureMap();
@@ -68,6 +73,9 @@ private:
 	// storage structures
 	std::unordered_map<std::string, SDL_Texture*> m_textureMap;
 	std::unordered_map<std::string, SpriteSheet*> m_spriteSheetMap;
+
+	SDL_Renderer* m_pRenderer;
+
 };
 
 #endif /* defined(__TEXTURE_MANAGER__) */

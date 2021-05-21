@@ -163,7 +163,6 @@ copy $(SolutionDir)Library\SDL\SDL2_ttf\lib\x86\*.dll $(TargetDir)\
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObjectType.h" />
     <ClInclude Include="MouseButtons.h" />
-    <ClInclude Include="Renderer.h" />
     <ClInclude Include="RigidBody.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneState.h" />
@@ -184,7 +183,6 @@ copy $(SolutionDir)Library\SDL\SDL2_ttf\lib\x86\*.dll $(TargetDir)\
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="Sprite.cpp" />
