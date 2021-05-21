@@ -2,10 +2,10 @@
 
 #include <utility>
 
-SDL_Renderer* Renderer::getRenderer() const
-{
-	return m_pRenderer;
-}
+//SDL_Renderer* Renderer::getRenderer() const
+//{
+//	return m_pRenderer;
+//}
 
 void Renderer::setRenderer(SDL_Renderer* renderer)
 {

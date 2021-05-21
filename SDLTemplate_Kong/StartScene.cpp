@@ -15,8 +15,8 @@ StartScene::~StartScene()
 
 void StartScene::draw()
 {
-	SDL_SetRenderDrawColor(Renderer::Instance().getRenderer(), 0, 0, 255, 255);
-	SDL_RenderDrawRect(Renderer::Instance().getRenderer(), &m_rect);
+	SDL_SetRenderDrawColor(Game::Instance().getRenderer(), 0, 0, 255, 255);
+	SDL_RenderDrawRect(Game::Instance().getRenderer(), &m_rect);
 	Scene::drawDisplayList();
 }
 

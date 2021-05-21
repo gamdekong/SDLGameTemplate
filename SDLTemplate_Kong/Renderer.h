@@ -15,7 +15,7 @@ public:
 	}
 
 	// getters and setters
-	SDL_Renderer* getRenderer() const;
+	//SDL_Renderer* getRenderer() const;
 	void setRenderer(SDL_Renderer* renderer);
 
 	void clean();

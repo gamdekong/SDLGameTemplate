@@ -58,13 +58,13 @@ bool Game::init(const char* title, const int x, const int y, const int width, co
 			std::cout << "window creation success" << std::endl;
 
 			// create a new SDL Renderer and store it in the Singleton
-			SDL_Renderer* renderer = SDL_CreateRenderer(m_pWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-			Renderer::Instance().setRenderer(renderer);
+			m_pRenderer = SDL_CreateRenderer(m_pWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+			//Renderer::Instance().setRenderer(renderer);
 
-			if (Renderer::Instance().getRenderer() != nullptr) // render init success
+			if (m_pRenderer != nullptr) // render init success
 			{
 				std::cout << "renderer creation success" << std::endl;
-				SDL_SetRenderDrawColor(Renderer::Instance().getRenderer(), 255, 255, 255, 255);
+				SDL_SetRenderDrawColor(m_pRenderer, 255, 255, 255, 255);
 			}
 			else
 			{
@@ -177,6 +177,11 @@ void Game::changeSceneState(const SceneState new_state)
 
 }
 
+SDL_Renderer* Game::getRenderer() const
+{
+	return m_pRenderer;
+}
+
 void Game::quit()
 {
 	m_bRunning = false;
@@ -184,14 +189,14 @@ void Game::quit()
 
 void Game::render() const
 {
-	SDL_SetRenderDrawColor(Renderer::Instance().getRenderer(), 255, 255, 255, 255);
-	SDL_RenderClear(Renderer::Instance().getRenderer()); // clear the renderer to the draw colour
+	SDL_SetRenderDrawColor(Game::Instance().getRenderer(), 255, 255, 255, 255);
+	SDL_RenderClear(Game::Instance().getRenderer()); // clear the renderer to the draw colour
 
 	m_currentScene->draw();
 
 
 
-	SDL_RenderPresent(Renderer::Instance().getRenderer()); // draw to the screen
+	SDL_RenderPresent(Game::Instance().getRenderer()); // draw to the screen
 
 	//ImGuiWindowFrame::Instance().Render();
 }
@@ -210,9 +215,11 @@ void Game::clean() const
 	//ImGuiWindowFrame::Instance().Clean();
 
 
-	
-	Renderer::Instance().clean();
+	//TextureManager::Instance().clean();
+	// todo renderer delete
+	//Game::Instance().clean();
 	SDL_DestroyWindow(m_pWindow);
+	//SDL_DestroyRenderer(m_pRenderer);
 
 	TTF_Quit();
 	SDL_Quit();
